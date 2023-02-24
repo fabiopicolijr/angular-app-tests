@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,16 +10,22 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created!';
   serverName = 'TestsServer';
-  serverCreted = false;
+  serverCreated = false;
+  servers = ['TestsServer', 'TestServer 2'];
 
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
   }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    console.log('hi');
+  }
 
   onCreateServer(): void {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = `Server was created! Name is ${this.serverName}`;
   }
 
