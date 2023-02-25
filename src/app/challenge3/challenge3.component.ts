@@ -8,10 +8,15 @@ import { Component } from '@angular/core';
 export class Challenge3Component {
   secret = false;
   secretLog = [];
-  secretCounter = 0;
+  secretCounter = 1;
 
   onToggleSecret() {
     this.secret = !this.secret;
-    this.secretLog.push(this.secretCounter++);
+    // this.secretLog.push(this.secretLog.length + 1);
+    this.secretLog.push(new Date());
+  }
+
+  getColor(counter) {
+    return counter >= 4 ? 'blue' : 'transparent';
   }
 }
